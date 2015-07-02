@@ -95,3 +95,5 @@ highlight MatchParen ctermbg=4
 
 " Here is where the vimsanity plugins begin
 execute pathogen#infect()
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*
+let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$\|.rvm$|.bundle$\|vendor\|node_modules\|venv'
