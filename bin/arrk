@@ -1,0 +1,5 @@
+#!/bin/bash
+for ARG in "$@"
+do
+	mv $ARG /data/tofile/.
+done

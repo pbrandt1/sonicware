@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# rec outputfile
+# Records from jack system and saves in file outputfile
+
+ecasound -i jack,system -o $1

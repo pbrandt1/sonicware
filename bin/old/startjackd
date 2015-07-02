@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/usr/bin/jackd -t1000 -dalsa -dhw:0 -r44100 -p512 -n2 &

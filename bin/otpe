@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Making two keys for $1"
+
+python /home/peter/otp.py generate "$1".key1 "$1" -f 
+python /home/peter/otp.py encrypt "$1" "$1".key1 "$1".key2

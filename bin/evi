@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# exit on fist error
+set -e
+
+# get file extension (last 4 characters)
+ext=${1: -4}
+
+#get file (everything up to .gpg)
+file=${1%\.gpg};
+
+# only do this for encrypted files
+if [ $ext == ".gpg" ]
+	then
+	gpg -d -o $file $1
+	vi $file
+	rm $1
+	gpg -e -r "Peter Brandt" -o $1 $file
+	rm $file
+fi

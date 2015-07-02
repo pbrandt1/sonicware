@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sudo sh -c "date -d '+ $1 minutes' '+%s' > /sys/class/rtc/rtc0/wakealarm"
+
+cat /proc/driver/rtc
+rhythmbox-client --pause
+sleep 10
+sudo pm-suspend
+sleep 5
+rhythmbox-client --unmute --set-volume=0.92 --play
+rhythmbox-client --unmute --set-volume=0.92 --play
+cat /proc/driver/rtc

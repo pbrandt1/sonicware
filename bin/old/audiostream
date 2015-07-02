@@ -1,0 +1,1 @@
+cvlc -vvv alsa://hw:1,0 --sout '#standard{access=http,mux=ogg,dst=localhost:8888}'

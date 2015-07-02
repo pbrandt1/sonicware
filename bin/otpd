@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Using two keys to create $1"
+
+python otp.py decrypt $1.key1 $1.key2 $1

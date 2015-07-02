@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+
+from optparse import OptionParser
+import os
+parser = OptionParser()
+parser.add_option("-w", "--work", action="store_true", dest="work")
+parser.add_option("-p", "--pizza", action="store_true", dest="pizza")
+parser.add_option("-n", "--nap", action="store_true", dest="nap")
+parser.add_option("-f", dest="song")
+
+(options, args) = parser.parse_args()
+jack = "/usr/bin/jackd -t1000 -dalsa -dhw:0 -r44100 -p512 -n2 &"
+unjack = "killall jackd"
+unplay = "killall mpg123"
+play = "mpg123 "
+setvolume = "amixer set Master 70%"
+
+workfile = "/home/peter/Music/Library/Technik City  Arrival.mp3"
+
+os.system(jack)
+os.system(setvolume)
+
+if options.work:
+	print("it's work time!")
+	alarum(workfile)
+elif options.pizza:
+	print("it's pizza time!")
+	alarum("/home/peter/Music/Library/She/03_she - chiptune superstar.mp3")
+elif options.nap:
+	print("it's nap time!")
+	alarum("/home/peter/Music/Library/She/03_she - chiptune superstar.mp3")
+elif options.song:
+	alarum(options.song)
+
+raw_input("press enter")
+os.system(unjack)
+os.system(unplay)
+
+
+def alarum(song):
+	os.system("mpg123 \"" + song + "\"&")

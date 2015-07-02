@@ -1,0 +1,3 @@
+#/bin/bash
+
+sudo apt-get install vim libcurl3 curl mongodb-clients redis-tools git openssh-server

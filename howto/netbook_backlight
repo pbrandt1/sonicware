@@ -1,0 +1,3 @@
+vi /etc/default/grub
+default: acpi_osi=Linux acpi_backlight=vendor
+sudo update-grub

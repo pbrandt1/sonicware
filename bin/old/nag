@@ -1,0 +1,25 @@
+#!/usr/bin/python
+
+import argparse
+import os
+import subprocess
+
+p = argparse.ArgumentParser(description='Nag someone about something some time in the future')
+
+p.add_argument('-t', action='store', help='the text to nag you with')
+p.add_argument('-d',action='store',  help='the (string) time delay, as in "5" for 5 seconds or "5m" for 5 minutes')
+
+args = p.parse_args();
+
+cmd = []
+cmd.append('sleep ')
+cmd.append(args.d)
+cmd.append(' && ')
+cmd.append('kdialog ')
+cmd.append('--passivepopup ')
+cmd.append('"')
+cmd.append(args.t)
+cmd.append('" 5')
+
+#os.popen(''.join(cmd))
+subprocess.Popen(''.join(cmd), shell=True)

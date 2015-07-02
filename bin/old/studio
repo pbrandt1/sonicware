@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+from optparse import OptionParser
+from subprocess import call
+
+class studioProgram:
+	def __init__(self, inShortArg, inLongArg, inProgramCommand):
+		self.shortArg = inShortArg
+		self.longArg = inLongArg
+		self.programCommand = inProgramCommand
+
+a = []
+a.append(studioProgram('a', "ardour", "ardour"))
+a.append(studioProgram('A', "audacity", "audacity"))
+a.append(studioProgram('x', 'hexter', 'hexter'))
+a.append(studioProgram('H', 'hydrogen', 'hydrogen'))
+
+p = OptionParser()
+for i in a:
+	p.add_option("-" + i.shortArg, "--" + i.longArg, action="store_true")
+
+(options, args) = p.parse_args()
+
+for i in a:
+	exec(compile('if options.' + i.longArg + ':\n\tcall("' + i.programCommand + '&")', '<string>', 'exec'))

@@ -1,0 +1,6 @@
+#/bin/bash
+
+mkdir -p ~/.vim
+ln -fsn $PWD/autoload ~/.vim/autoload
+ln -fsn $PWD/bundle ~/.vim/bundle
+ln -fs $PWD/vimrc ~/.vimrc

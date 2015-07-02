@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#web - command to focus browser or open it if it exists
+if wmctrl -l | grep Ardour 1> /dev/null
+then wmctrl -a Ardour
+else ardour3 &
+fi
